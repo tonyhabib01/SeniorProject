@@ -1,0 +1,87 @@
+﻿@model IEnumerable<GymApplication.Models.Class>
+@{
+    ViewBag.Title = "ManageClass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container-fluid">
+        <h3 class="text-dark mb-1">Manage Classes</h3>
+        <div class="row" style="padding: 40px;">
+            <div class="col">
+                <div class="form-group text-center">
+                    <a class="btn btn-primary btn-lg" style="width: 133.325px;" href="@Url.Action("AddClass","Classes")">Add&nbsp;</a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group text-center"><button id="myBtn" class="btn btn-primary btn-lg" type="button">Edit/Delete</button></div>
+            </div>
+        </div>
+
+        <div id ="myModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit/Delete</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <form>
+                                    <div class="form-group"><input id="myInput" class="form-control" type="search" placeholder="Search..."></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Day</th>
+                                                <th>Start Time</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="myTable">
+                                            @foreach (var Class in Model)
+                                            {
+                                                <tr>
+                                                    <td>@Class.Name</td>
+                                                    <td>@Class.Day</td>
+                                                    <td>@Class.StartTime</td>
+                                                    <td>@Html.ActionLink("Edit", "EditClass", "Classes", new { id = Class.Id}, new { @class = "btn btn-primary btn-sm" })</td>
+                                                    <td>@Html.ActionLink("Delete", "Delete", "Classes", new { id = Class.Id}, new { @class = "btn btn-danger btn-small"})</td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@section scripts {
+    <script>
+
+            $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                 var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+              });
+            });
+
+        $("#myBtn").click(function () {
+            $("#myModal").modal("show");
+        });
+
+    </script>
+}

@@ -1,0 +1,108 @@
+﻿@model IEnumerable<GymApplication.Models.Item>
+@{
+    ViewBag.Title = "Stock";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+<link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+<link rel="stylesheet" href="~/assets/fonts/simple-line-icons.min.css">
+<link rel="stylesheet" href="~/assets/css/Bootstrap-4---Table-Fixed-Header.css">
+<link rel="stylesheet" href="~/assets/css/Footer-Dark.css">
+<link rel="stylesheet" href="~/assets/css/Pricing-Grid.css">
+
+<style>
+
+    tr:hover {
+        background-color: aliceblue;
+        cursor: pointer
+    }
+</style>
+<div class="container-fluid">
+    <h3 class="text-dark mb-4">Stock</h3>
+    <div class="card shadow">
+        <div class="card-header py-3">
+            <p class="text-primary m-0 font-weight-bold">Stock Info</p>
+        </div>
+        <div class="card-body">
+            <a href="@Url.Action("AddItem", "Items")" class="btn btn-primary btn-group-sm" style="margin-bottom: 15px;">Add Item</a>
+
+            @if (!Model.Any())
+            {
+                <p>We don't have any item.</p>
+            }
+            else
+            {
+
+                <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                    <table class="table dataTable my-0 mydatatable" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Barcode</th>
+                                <th>Name</th>
+                                <th>Retail Price</th>
+                                <th>Actual Price</th>
+                                <th>Stock Number</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr onclick="location.href = '@Url.Action("EditItem","Items", new {id = item.Id })'">
+                                    <td>@item.Barcode</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.RetailPrice $</td>
+                                    <td>@item.ActualPrice $</td>
+                                    <td>@item.StockNumber</td>
+                                    <td>
+                                        @Html.ActionLink("Delete", "DeleteItem", "Items", new { id = item.Id }, new { @class = "btn btn-danger" })
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td><strong>Barcode</strong></td>
+                                <td><strong>Name</strong></td>
+                                <td><strong>Retail Price</strong></td>
+                                <td><strong>Actual Price</strong></td>
+                                <td><strong>Stock Number</strong></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+
+            }
+
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+<link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+<link rel="stylesheet" href="~/assets/fonts/simple-line-icons.min.css">
+<link rel="stylesheet" href="~/assets/css/Bootstrap-4---Table-Fixed-Header.css">
+<link rel="stylesheet" href="~/assets/css/Footer-Dark.css">
+<link rel="stylesheet" href="~/assets/css/Pricing-Grid.css">
+
+@section scripts{
+    <script>
+        $('.mydatatable').DataTable();
+
+        $("input.form-control.form-control-sm").attr("Placeholder", "Search...");
+
+    </script>
+
+
+}

@@ -1,0 +1,89 @@
+﻿@model GymApplication.Models.Item
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h3 class="text-dark mb-1">@ViewBag.Title</h3>
+    <div class="col" style="padding: 15px;">
+        <div class="card shadow mb-3">
+            <div class="card-header py-3">
+                <p class="text-primary m-0 font-weight-bold">@ViewBag.Title</p>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Save", "Items"))
+                {@*Begin Form*@
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(i => i.Barcode, new { style = "width: 90.7875px;height: 24px;margin: 0px 0px 8px;padding: 0px;" })</strong>
+                            @Html.TextBoxFor(i => i.Barcode , new { @class = "form-control", id = "barcode", tabindex = "1" })
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(i => i.Name)</strong>
+                            @Html.TextBoxFor(i => i.Name , new { @class = "form-control", id = "name" , tabindex = "2"})
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(i => i.RetailPrice, new { style = "width: 90.7875px;height: 24px;margin: 0px 0px 8px;padding: 0px;" })</strong>
+                            @Html.TextBoxFor(i => i.RetailPrice, new { @class = "form-control" ,tabindex = "3"})
+                        </div>
+                    </div>                    
+                    <div class="col">
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(i => i.ActualPrice, new { style = "width: 90.7875px;height: 24px;margin: 0px 0px 8px;padding: 0px;" })</strong>
+                            @Html.TextBoxFor(i => i.ActualPrice, new { @class = "form-control",tabindex = "4" })
+                        </div>
+                    </div>
+                </div>              
+                
+                <div class="form-row row-cols-2">
+                    <div class="col text-nowrap">
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(i => i.StockNumber, new { style = "width: 90.7875px;height: 24px;margin: 0px 0px 8px;padding: 0px;" })</strong>
+                            @Html.TextBoxFor(i => i.StockNumber, new { @class = "form-control", tabindex = "5" })
+                        </div>
+                    </div>                    
+
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-sm" type="submit"tabindex = "6">@ViewBag.Title</button>
+                        </div>
+                    </div>
+                </div>
+                @Html.HiddenFor(i => i.Id)
+            }@*End Form*@
+        </div>
+    </div>
+
+</div>
+</div>
+
+@section scripts{
+    
+    <script>
+
+        $('input').on('keypress', function (e) {
+            if (e.which == 13) {
+                e.preventDefault();
+                var $next = $('[tabIndex=' + (+this.tabIndex + 1) + ']');
+                console.log($next.length);
+                if (!$next.length) {
+                    $next = $('[tabIndex=1]');
+                }
+                $next.focus();
+            }
+        });
+
+    </script>
+}
+

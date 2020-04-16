@@ -1,0 +1,49 @@
+﻿@using GymApplication.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_Login.cshtml";
+
+}
+
+
+
+
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "user", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-user", id = "exampleInputEmail", placeholder = "Enter Email Address..." })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-user", id = "exampleInputPassword", placeholder = "Password" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-checkbox small">
+            <div class="form-check">
+                @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input custom-control-input", id = "formCheck-1" })
+                <label class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label>
+            </div>
+        </div>
+    </div>
+            
+            <input type="submit" value="Login" class="btn btn-primary btn-block text-white btn-user" />
+            @*<a class="btn btn-primary btn-block text-white btn-user" role="button" href="Home.html">Login</a>*@
+            <hr />
+
+            @* Enable this once you have account confirmation enabled for password reset functionality
+                <div class="text-center">
+                    @Html.ActionLink("Forgot your password?", "ForgotPassword", new {@class ="small"})
+                </div>*@
+
+            }
+
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }

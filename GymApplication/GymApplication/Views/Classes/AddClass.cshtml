@@ -1,0 +1,54 @@
+﻿@model GymApplication.ViewModels.AddClassForm
+@{
+    ViewBag.Title = "AddClass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container-fluid">
+        <h3 class="text-dark mb-1">@ViewBag.TitleName</h3>
+        <div class="col" style="padding: 15px;">
+            <div class="card shadow mb-3">
+                <div class="card-header py-3">
+                    <p class="text-primary m-0 font-weight-bold">@ViewBag.TitleName</p>
+                </div>
+                <div class="card-body">
+                    @using(Html.BeginForm("Save", "Classes")) { @*Begin Form*@
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <strong>@Html.LabelFor(c => c.Class.Name, new { style = "width: 90.7875px;height: 24px;margin: 0px 0px 8px;padding: 0px;" })</strong>
+                                @Html.TextBoxFor(c => c.Class.Name, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group">
+                                   <strong>@Html.LabelFor(c => c.Class.StartTime)</strong>
+                                    @Html.DropDownListFor(c => c.Class.StartTime, new SelectList(Model.StartTimes), "Select Class Time", new { @class = "form-control"})
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row row-cols-2">
+                            <div class="col">
+                                <div class="form-group">
+                                <strong>@Html.LabelFor(c => c.Class.Day, new { style="width: 90.7875px;height: 24px;margin: 0px 0px 8px;padding: 0px;"})</strong>
+                                @Html.DropDownListFor(c=>c.Class.Day, new SelectList(Model.Days), "Select Class Day", new { @class= "form-control"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                <button class="btn btn-primary btn-sm" type="submit">@ViewBag.TitleName</button>
+                                </div>
+                            </div>
+                        </div>
+                        @Html.HiddenFor(c => c.Class.Id)
+                    }@*End Form*@
+                </div>
+            </div>
+
+        </div>
+    </div>
+

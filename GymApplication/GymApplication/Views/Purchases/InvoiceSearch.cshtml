@@ -1,0 +1,157 @@
+﻿@model  IEnumerable<GymApplication.Models.Invoice>
+@{
+    ViewBag.Title = "InvoiceSearch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+<link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+<link rel="stylesheet" href="~/assets/fonts/simple-line-icons.min.css">
+<link rel="stylesheet" href="~/assets/css/Bootstrap-4---Table-Fixed-Header.css">
+<link rel="stylesheet" href="~/assets/css/Footer-Dark.css">
+<link rel="stylesheet" href="~/assets/css/Pricing-Grid.css">
+
+<style>
+
+    tr:hover {
+        background-color: aliceblue;
+        cursor: pointer
+    }
+</style>
+
+<div class="container-fluid">
+    <h3 class="text-dark mb-4">Invoices</h3>
+    <div class="card shadow">
+        <div class="card-header py-3">
+            <p class="text-primary m-0 font-weight-bold">Invoices</p>
+        </div>
+        <div class="card-body">
+
+
+            @if (!Model.Any())
+            {
+                <p>We don't have any Invoice</p>
+            }
+            else
+            {
+
+                <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                    <table class="table dataTable my-0 mydatatable" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Invoice #</th>
+                                <th>Date Time</th>
+                                <th>Total Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var invoice in Model)
+                            {
+                                <tr @*onclick="location.href = '@Url.Action("Edit","Purchases", new {id = invoice.Id })'"*@>
+                                    <td>@invoice.Id</td>
+                                    <td>@invoice.InvoiceDateTime</td>
+                                    <td>@invoice.TotalPrice $</td>
+                                    <td>
+                                        <button class="btn btn-primary">View</button>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <th>Invoice #</th>
+                                <th>Date Time</th>
+                                <th>Total Price</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+
+            }
+
+        </div>
+    </div>
+
+    @**************Start of View button Modal *****************@
+    <div id="myModal" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit/Delete</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <form>
+                                <div class="form-group"><input id="myInput" class="form-control" type="search" placeholder="Search..."></div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Day</th>
+                                            <th>Start Time</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="myTable">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+<link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+<link rel="stylesheet" href="~/assets/fonts/simple-line-icons.min.css">
+<link rel="stylesheet" href="~/assets/css/Bootstrap-4---Table-Fixed-Header.css">
+<link rel="stylesheet" href="~/assets/css/Footer-Dark.css">
+<link rel="stylesheet" href="~/assets/css/Pricing-Grid.css">
+
+@section scripts{
+    
+    <script>
+
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
+

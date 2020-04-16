@@ -1,0 +1,194 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+        <h3 class="text-dark mb-1">Purchases</h3>
+        <form id="newInvoice">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary mb-1">Invoice</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Barcode</label>
+                    <input id="barcode" class="form-control" type="text">
+                </div>
+                <div class="col">
+                    <label>Item Search</label>
+                    <input id="itemSearch" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="row d-inline justify-content-start">
+                <div class="col">
+                    <div class="form-group">
+                        <ul id ="item" class="list-group">
+                           @*Jquery barcode scans renders li's here*@
+                        </ul>
+                        <ul class="list-group">
+                            <li class="list-group-item  list-group-item-primary"><span>Total Price</span><span id="totalPrice" class="float-right">0 $</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"><button id ="deleteItemBtn" class="btn btn-primary" type="button">Delete Item</button></div>
+                <div class="col text-center">@Html.ActionLink("Invoice Search", "InvoiceSearch", "Purchases", new { @class = "btn btn-primary" })</div>
+                <div class="col text-right"><button id="checkout" class="btn btn-primary" type="button">Checkout</button></div>
+            </div>
+        </form>
+
+
+    </div>
+
+@section scripts {
+
+   *@Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+        /*****************Configuring the Checkout System.*****************/
+        var vm = {
+
+            ItemIds: [],
+            totalPrice: 0.0,
+        };
+
+        
+
+        $('#barcode').keypress(function (event) {
+
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == '13') {
+
+                var $items = $('#item');
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/items',
+                    success: function (data) {
+                        $.each(data, function (i, item) {
+                            if (($('#barcode').val()) == item.barcode) {
+                                
+                                LoadItem($items, item);
+                                vm.ItemIds.push(item.id);
+
+                            }
+                            ;
+                        });
+
+
+                            ActiveButtonAdd();
+
+                        }
+                    })
+            }
+        });
+
+
+        //Delete Performance:
+
+            $('#deleteItemBtn').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/items',
+                    success: function (data) {
+                        $.each(data, function (i, item) {
+                            if (item.id == $('.list-group-item.list-group-item-action.active').attr('id')) {
+                                vm.totalPrice -= item.actualPrice;
+                                $(".list-group-item.list-group-item-action.active").remove();
+                                $('#totalPrice').replaceWith('<span id="totalPrice" class="float-right">' + vm.totalPrice + ' $</span>');
+                                vm.ItemIds.splice($.inArray(item.id, vm.ItemIds), 1);
+
+                            }
+                        });
+                    }
+                });
+            });
+
+        $('#checkout').click(function () {
+            $('#checkout').attr("type", "submit");
+            $('#newInvoice').submit(function (e) {
+             $('#checkout').attr("type", "button");
+            e.preventDefault();
+
+            $.ajax({
+                url: '/api/purchases',
+                method: 'post',
+                data: vm
+            })
+                .done(function () {
+                    alert('done');
+                })
+                .fail(function () {
+                    alert('fail');
+                })
+        });
+        });
+        //var validator = $('#newInvoice').validate({
+        //    submitHandler: function () {
+        //        $.ajax({
+        //            url: "/api/purchases",
+        //            method: "POST",
+        //            data: vm
+        //        })
+        //            .done(function () {
+        //                vm = { ItemIds: [] };
+        //                validator.resetForm();
+        //            })
+        //            .fail(function () {
+        //                console.log("Something unexpected happened");
+        //            })
+
+        //        return false;
+        //    }
+
+        //});
+
+
+
+
+
+
+        function LoadItem(itemRow,a) {
+
+            itemRow.append('<li id = "' + a.id +'" class="list-group-item list-group-item-action"><span>' + a.name + '</span><span class="float-right">' + a.actualPrice + ' $</span></li>');
+            vm.totalPrice += a.actualPrice;
+            $('#totalPrice').replaceWith('<span id="totalPrice" class="float-right">' + vm.totalPrice + ' $</span>');
+            $('#barcode').val('');
+        };
+
+
+        //Following Function add class tag active once you click on the item 
+        function ActiveButtonAdd() {
+            $(".list-group-item.list-group-item-action").click(function () {
+
+                // Select all list items 
+                var listItems = $(".list-group-item.list-group-item-action");
+
+                // Remove 'active' tag for all list items 
+                for (let i = 0; i < listItems.length; i++) {
+                    listItems[i].classList.remove("active");
+                }
+
+                // Add 'active' tag for currently selected item 
+                this.classList.add("active");
+            });
+        }
+        /*****************End of Checkout configuration*****************/
+
+
+
+        /*****************Invoice Search Configuration*****************/
+
+        //Get the invoices from the Invoice API.
+        //Display them in the modal.
+
+
+
+
+
+
+    </script>
+}

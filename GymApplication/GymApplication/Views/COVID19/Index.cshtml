@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "COVID-19 TRACKER";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <h3 class="text-dark mb-4">Stay Home - Stay Safe</h3>
+    <div class="card shadow">
+        <div class="card-header py-3">
+            <p class="text-primary m-0 font-weight-bold">COVID-19 Tracker</p>
+        </div>
+        <div class="card-body">
+
+            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                <table class="table dataTable my-0 mydatatable" id="dataTable">
+                    @*<thead>
+                        <tr>
+                            <td><strong>Country</strong></td>
+                            <td><strong>Total Cases</strong></td>
+                            <td><strong>Deaths</strong></td>
+                            <td><strong>Totally Recovered</strong></td>
+                            <td><strong>New Deaths</strong></td>
+                            <td><strong>New Cases</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                        <tr>
+                            <td><strong>Country</strong></td>
+                            <td><strong>Cases</strong></td>
+                            <td><strong>Deaths</strong></td>
+                            <td><strong>Totally Recovered</strong></td>
+                            <td><strong>New Deaths</strong></td>
+                            <td><strong>New Cases</strong></td>
+                        </tr>
+                    </tfoot>*@
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+@section scripts{
+
+    <script>
+
+
+
+        axios.get('https://api.thevirustracker.com/free-api?countryTotals=ALL').then(function (response) {
+            var rawData = arrData(response.data.countryitems[0]);
+            console.log(rawData)
+            myTable(rawData);
+            $("input.form-control.form-control-sm").attr("Placeholder", "Search...");
+        }).catch(function (error) {
+            console.log(error);
+        })
+
+        function arrData(objData) {
+            var arrayData = Object.keys(objData).map(function (key) {
+                return objData[key]
+            });
+            return myData(arrayData);
+        }
+
+        function myData(data) {
+            var list = [];
+            data.forEach(function (item) {
+                list.push([
+                    item.title,
+                    item.total_cases,
+                    item.total_new_cases_today,
+                    item.total_active_cases,
+                    item.total_deaths,
+                    item.total_new_deaths_today,
+                    item.total_recovered
+                ]);
+            });
+            console.log(list.slice(0, 182));
+            return list.slice(0, 182);
+        }
+
+        function myTable(dataSet) {
+            var myDataTable = $('.mydatatable').DataTable({
+                data: dataSet,
+                columns: [
+                    { title: "Countries" },
+                    { title: "Total Cases" },
+                    { title: "New Cases" },
+                    { title: "Active Cases" },
+                    { title: "Total Deaths" },
+                    { title: "New Deaths" },
+                    { title: "Total Recovered" }
+
+                ],
+                order: [[1, "desc"]]
+            });
+            return myDataTable;
+        }
+
+
+
+
+
+
+
+
+        //BACKUP API
+
+
+
+
+
+
+//$(document).ready(function() {
+//    $('.mydatatable').DataTable({
+//        "processing": true,
+//        "ajax": {
+//            url: 'https://api.covid19api.com/summary',
+//            dataSrc: "Countries"
+//        },
+//        "columns": [
+//            {"data": "Country"},
+//            {"data": "TotalConfirmed"},
+//            {"data": "TotalDeaths"},
+//            {"data": "TotalRecovered"},
+//            {"data": "NewDeaths"},
+//            {"data": "NewConfirmed"}
+//        ],
+//        "order": [[ 1, "desc" ]]
+
+//    } );
+
+//    $("input.form-control.form-control-sm").attr("Placeholder", "Search...");
+
+
+//});
+
+    </script>
+
+
+
+
+}

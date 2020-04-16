@@ -1,0 +1,117 @@
+﻿@model IEnumerable<GymApplication.Models.User>
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+<link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+<link rel="stylesheet" href="~/assets/fonts/simple-line-icons.min.css">
+<link rel="stylesheet" href="~/assets/css/Bootstrap-4---Table-Fixed-Header.css">
+<link rel="stylesheet" href="~/assets/css/Footer-Dark.css">
+<link rel="stylesheet" href="~/assets/css/Pricing-Grid.css">
+
+<style>
+
+    tr:hover {
+        background-color: aliceblue;
+        cursor:pointer
+    }
+</style>
+<div class="container-fluid">
+    <h3 class="text-dark mb-4">Users</h3>
+    <div class="card shadow">
+        <div class="card-header py-3">
+            <p class="text-primary m-0 font-weight-bold">User Info</p>
+        </div>
+        <div class="card-body">
+
+
+            @if (!Model.Any())
+            {
+                <p>We don't have any user.</p>
+            }
+            else
+            {
+                @*<div class="row">
+                        <div class="col-md-6 text-nowrap">
+                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Show&nbsp;<select class="form-control form-control-sm custom-select custom-select-sm"><option value="10" selected="">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>&nbsp;</label></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
+                        </div>
+                    </div>*@
+                <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                    <table class="table dataTable my-0 mydatatable" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>User Type</th>
+                                <th>Membership Type</th>
+                                <th>Age</th>
+                                <th>Reg. Date</th>
+                                <th>End of Mem.</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model)
+                            {
+                                <tr onclick="location.href = '@Url.Action("Edit","Users", new {id = user.Id })'">
+                                    <td><img class="rounded-circle mr-2" width="30" height="30" src="@($"{user.ImagePath}{user.FirstName} {user.LastName}.jpg")">@user.FirstName @user.LastName</td>
+                                    <td>@user.Role.RoleName</td>
+                                    <td>@user.MembershipType.MembershipName</td>
+                                    <td>@user.Age</td>
+                                    <td>@user.RegistrationDate.ToShortDateString()</td>
+                                    <td>@(user.EndOfMembership.HasValue ? user.EndOfMembership.Value.ToShortDateString() : "None") </td>
+                                    <td>
+                                        @Html.ActionLink("Delete", "Delete", "Users", new { id = user.Id}, new { @class = "btn btn-danger"})
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td><strong>Name</strong></td>
+                                <td><strong>User Type</strong></td>
+                                <td><strong>Membership Type</strong></td>
+                                <td><strong>Age</strong></td>
+                                <td><strong>Reg. Date</strong></td>
+                                <td><strong>End of Mem.</strong></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+
+            }
+
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+<link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+<link rel="stylesheet" href="~/assets/fonts/simple-line-icons.min.css">
+<link rel="stylesheet" href="~/assets/css/Bootstrap-4---Table-Fixed-Header.css">
+<link rel="stylesheet" href="~/assets/css/Footer-Dark.css">
+<link rel="stylesheet" href="~/assets/css/Pricing-Grid.css">
+
+@section scripts{
+    <script>
+        $('.mydatatable').DataTable();
+
+        $("input.form-control.form-control-sm").attr("Placeholder", "Search...");
+
+    </script>
+
+
+}

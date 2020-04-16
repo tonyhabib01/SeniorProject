@@ -1,0 +1,283 @@
+﻿@model IEnumerable<GymApplication.Models.Class>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container-fluid">
+        <h3 class="text-dark mb-1">Schedule</h3>
+
+        <div class="table-responsive text-center" scope>
+            <table class="table mydatatable">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                        <th>Sunday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>00:00 - 01:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "00:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "00:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "00:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "00:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "00:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "00:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "00:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>01:00 - 02:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "01:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "01:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "01:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "01:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "01:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "01:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "01:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>02:00 - 03:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "02:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "02:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "02:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "02:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "02:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "02:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "02:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>03:00 - 04:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "03:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "03:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "03:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "03:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "03:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "03:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "03:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>04:00 - 05:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "04:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "04:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "04:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "04:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "04:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "04:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "04:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>05:00 - 06:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "05:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "05:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "05:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "05:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "05:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "05:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "05:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>06:00 - 07:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "06:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "06:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "06:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "06:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "06:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "06:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "06:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>07:00 - 08:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "07:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "07:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "07:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "07:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "07:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "07:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "07:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>08:00 - 09:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "08:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "08:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "08:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "08:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "08:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "08:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "08:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>09:00 - 10:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "09:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "09:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "09:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "09:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "09:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "09:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "09:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>10:00 - 11:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "10:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "10:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "10:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "10:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "10:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "10:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "10:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>11:00 - 12:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "11:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "11:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "11:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "11:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "11:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "11:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "11:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>12:00 - 13:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "12:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "12:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "12:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "12:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "12:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "12:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "12:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>13:00 - 14:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "13:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "13:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "13:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "13:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "13:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "13:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "13:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>14:00 - 15:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "14:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "14:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "14:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "14:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "14:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "14:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "14:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>15:00 - 16:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "15:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "15:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "15:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "15:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "15:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "15:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "15:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>16:00 - 17:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "16:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "16:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "16:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "16:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "16:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "16:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "16:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>17:00 - 18:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "17:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "17:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "17:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "17:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "17:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "17:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "17:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>18:00 - 19:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "18:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "18:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "18:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "18:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "18:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "18:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "18:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>19:00 - 20:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "19:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "19:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "19:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "19:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "19:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "19:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "19:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>20:00 - 21:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "20:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "20:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "20:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "20:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "20:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "20:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "20:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>21:00 - 22:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "21:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "21:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "21:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "21:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "21:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "21:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "21:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>22:00 - 23:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "22:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "22:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "22:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "22:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "22:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "22:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "22:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    <tr>
+                        <th>23:00 - 00:00</th>
+                        <td>@((from c in Model where c.Day == "Monday" && c.StartTime == "23:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Tuesday" && c.StartTime == "23:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Wednesday" && c.StartTime == "23:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Thursday" && c.StartTime == "23:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Friday" && c.StartTime == "23:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Saturday" && c.StartTime == "23:00" select c.Name).SingleOrDefault())</td>
+                        <td>@((from c in Model where c.Day == "Sunday" && c.StartTime == "23:00" select c.Name).SingleOrDefault())</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+@section scripts{
+    <script>
+        $('.mydatatable').DataTable(
+            {
+                "bPaginate": false,
+                "bInfo": false
+
+            });
+        $("input.form-control.form-control-sm").attr("Placeholder", "Search...");
+
+    </script>
+    }
