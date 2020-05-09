@@ -25,8 +25,34 @@ namespace GymApplication.Controllers.api
         public IEnumerable<Invoice> GetItems()
         {
             var invoices = _context.Invoices.ToList();
+            var items = _context.Items.ToList();
+            var iteminvoices = _context.InvoiceItems.ToList();
 
-            return invoices;
+            List<Invoice> testInvoices = new List<Invoice>();
+            Invoice testInvoice;
+
+            foreach (var invoice in invoices)
+            {
+                var testItems = new List<Item>();
+                var m = iteminvoices.Where(i => i.Invoice.Id == invoice.Id).ToList();
+                foreach (var iteminvoice in m)
+                {
+                    testItems.Add(items.Single(i=>i.Id == iteminvoice.Item.Id));
+                }
+
+                testInvoice = new Invoice
+                {
+                    Id = invoice.Id,
+                    InvoiceDateTime = invoice.InvoiceDateTime,
+                    TotalPrice = invoice.TotalPrice,
+                    Items = testItems
+                };
+                testInvoices.Add(testInvoice);
+
+            }
+            return testInvoices;
+
+
         }
 
 
@@ -49,7 +75,7 @@ namespace GymApplication.Controllers.api
             var invoice = new Invoice()
             {
                 InvoiceDateTime = DateTime.Now,
-                TotalPrice = ItemIds.TotalPrice
+                TotalPrice = ItemIds.TotalPrice,
                 //Items = itemList
                 
             };
