@@ -22,7 +22,8 @@ namespace GymApplication.Controllers.api
         }
 
         //GET: /api/purchases
-        public IEnumerable<Invoice> GetItems()
+        [HttpGet]
+        public IEnumerable<Invoice> GetInvoices()
         {
             var invoices = _context.Invoices.ToList();
             var items = _context.Items.ToList();
@@ -54,6 +55,15 @@ namespace GymApplication.Controllers.api
 
 
         }
+        ////Get: /api/purchases/id
+        //public IHttpActionResult GetInvoices(int id)
+        //{
+        //    var invoice = _context.Invoices.SingleOrDefault(i => i.Id == id);
+        //    if (invoice == null)
+        //        return NotFound();
+
+        //    return Ok(invoice);
+        //}
 
 
         //POST: /api/purchases
@@ -107,6 +117,30 @@ namespace GymApplication.Controllers.api
                 _context.InvoiceItems.Add(invoiceItems); // adding each row to the database
             }
 
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IHttpActionResult DeletePurchase(int id)
+        {
+            var invoiceInDb = _context.Invoices.SingleOrDefault(c => c.Id == id);
+            var itemsInDb = _context.Items.ToList();
+
+            var invoiceItemsInDb = _context.InvoiceItems.Where(i => i.Invoice.Id == id);
+
+            if (invoiceInDb == null)
+                return NotFound();
+
+
+            foreach (var k in invoiceItemsInDb)
+            {
+                var item = itemsInDb.Single(i => i.Id == k.Item.Id);
+                item.StockNumber++;
+                _context.InvoiceItems.Remove(/*_context.InvoiceItems.Single(i => i.Id == k.Id)*/k);
+            }
+            _context.Invoices.Remove(invoiceInDb);
             _context.SaveChanges();
 
             return Ok();

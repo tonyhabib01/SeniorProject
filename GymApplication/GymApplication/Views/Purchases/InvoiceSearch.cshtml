@@ -51,12 +51,12 @@
                         <tbody>
                             @foreach (var invoice in Model)
                             {
-                                <tr @*onclick="location.href = '@Url.Action("Edit","Purchases", new {id = invoice.Id })'"*@>
+                                <tr>
                                     <td>@invoice.Id</td>
                                     <td>@invoice.InvoiceDateTime</td>
                                     <td>@invoice.TotalPrice $</td>
-                                    <td>
-                                        <button class="btn btn-primary">View</button>
+                                    <td data-invoice-id = "@(invoice.Id)">
+                                        <button class="btn btn-primary view">View</button>
                                     </td>
                                 </tr>
                             }
@@ -85,36 +85,30 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Edit/Delete</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">View</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col">
-                            <form>
-                                <div class="form-group"><input id="myInput" class="form-control" type="search" placeholder="Search..."></div>
-                            </form>
+                            <h5>Invoice #</h5>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Day</th>
-                                            <th>Start Time</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="myTable">
 
-                                    </tbody>
-                                </table>
+                    <div class="row d-inline justify-content-start">
+                        <div class="col">
+                            <div class="form-group">
+                                <ul id="item" class="list-group">
+                                    @*Jquery barcode scans renders li's here*@
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item  list-group-item-primary"><span>Total Price</span><span id="totalPrice" class="float-right">0 $</span></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Delete</button>
                 </div>
             </div>
         </div>
@@ -135,23 +129,46 @@
 @section scripts{
     
     <script>
+        //Get info from api and display them in the modal
+        $(".btn.btn-primary.view").click(function () {
+            var invoiceId = $(this).parent().attr('data-invoice-id');
+            $("#myModal").modal("show");
+            $.ajax({
+                type: 'GET',
+                url: '/api/purchases',
+                success: function (data) {
+                    $.each(data, function (i, invoice) {
+                        if (invoice.id == invoiceId) { 
+                            $('h5').text("Invoice #" + invoice.id);
+                            $('.modal-footer').attr("data-invoice-id",invoice.id)
+                            $('#totalPrice').replaceWith('<span id="totalPrice" class="float-right">' + invoice.totalPrice + ' $</span>');
+                            $.each(invoice.items, function (j, item) {
+                                $('#item').append('<li id = "' + item.id + '" class="list-group-item list-group-item-action"><span>' + item.name + '</span><span class="float-right">' + item.actualPrice + ' $</span></li>');
 
-    </script>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+                        });
+                        }
+                    });
+                }
+            });
+        });
+
+        //Clear the li  in the ul once you close the modal
+        $("#myModal").on("hide.bs.modal", function () {
+            $('#item').empty();
+        });
+
+        //Delete action event
+        $('.btn.btn-danger').click(function () {
+
+            console.log($(this).parent().attr('data-invoice-id'))
+            $.ajax({
+                url: '/api/purchases/' + $(this).parent().attr('data-invoice-id'),
+                method: 'DELETE',
+                success: function () {
+                    location.reload(true);
+                }
+            });
+        });
+    </script>    
     }
 
