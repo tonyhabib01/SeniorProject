@@ -20,6 +20,7 @@ namespace GymApplication.Models
 
         [Display(Name ="Stock Number")]
         public int StockNumber { get; set; }
+
         public List<Invoice> Invoices { get; set; }
     }
 }

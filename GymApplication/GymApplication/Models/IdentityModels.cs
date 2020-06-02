@@ -27,6 +27,10 @@ namespace GymApplication.Models
         public DbSet<Item> Items { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<InvoiceItems> InvoiceItems { get; set; }
+        public DbSet <DietPlan> DietPlans { get; set; }
+        public DbSet<Workout> Workouts { get; set; }
+        public DbSet<Earning> Earnings { get; set; }
+        public DbSet<Bill> Bills { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

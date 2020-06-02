@@ -1,0 +1,90 @@
+﻿@model IEnumerable<GymApplication.Models.User>
+@{
+    ViewBag.Title = "Workouts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    tr:hover {
+        background-color: aliceblue;
+        cursor: pointer
+    }
+</style>
+
+<div class="container-fluid">
+    <h3 class="text-dark mb-4">Workouts</h3>
+    <div class="card shadow">
+        <div class="card-header py-3">
+            <p class="text-primary m-0 font-weight-bold">User Info</p>
+        </div>
+        <div class="card-body">
+
+
+            @if (!Model.Any())
+            {
+                <p>We don't have any user.</p>
+            }
+            else
+            {
+                <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                    <table class="table dataTable my-0 mydatatable" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>User Type</th>
+                                <th>Membership Type</th>
+                                <th>Age</th>
+                                <th>Reg. Date</th>
+                                <th>End of Mem.</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model)
+                            {
+                                <tr onclick="location.href = '@Url.Action("AddWorkout","Workout", new {id = user.Id })'">
+                                    <td><img class="rounded-circle mr-2" width="30" height="30" src="@($"{user.ImagePath}{user.FirstName} {user.LastName}.jpg")">@user.FirstName @user.LastName</td>
+                                    <td>@user.Role.RoleName</td>
+                                    <td>@user.MembershipType.MembershipName</td>
+                                    <td>@user.Age</td>
+                                    <td>@user.RegistrationDate.ToShortDateString()</td>
+                                    <td>@(user.EndOfMembership.HasValue ? user.EndOfMembership.Value.ToShortDateString() : "None") </td>
+                                    <td>
+                                        @Html.ActionLink("View Workout", "ViewWorkout", "Workout", new { id = user.Id }, new { @class = "btn btn-primary" })
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td><strong>Name</strong></td>
+                                <td><strong>User Type</strong></td>
+                                <td><strong>Membership Type</strong></td>
+                                <td><strong>Age</strong></td>
+                                <td><strong>Reg. Date</strong></td>
+                                <td><strong>End of Mem.</strong></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+
+            }
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $('.mydatatable').DataTable();
+
+        $("input.form-control.form-control-sm").attr("Placeholder", "Search...");
+
+    </script>
+
+
+}
+

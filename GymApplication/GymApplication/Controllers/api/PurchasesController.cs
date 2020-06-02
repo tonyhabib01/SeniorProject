@@ -25,6 +25,7 @@ namespace GymApplication.Controllers.api
         [HttpGet]
         public IEnumerable<Invoice> GetInvoices()
         {
+            //double profit;
             var invoices = _context.Invoices.ToList();
             var items = _context.Items.ToList();
             var iteminvoices = _context.InvoiceItems.ToList();
@@ -34,6 +35,7 @@ namespace GymApplication.Controllers.api
 
             foreach (var invoice in invoices)
             {
+                //profit = 0;
                 var testItems = new List<Item>();
                 var m = iteminvoices.Where(i => i.Invoice.Id == invoice.Id).ToList();
                 foreach (var iteminvoice in m)
@@ -41,13 +43,19 @@ namespace GymApplication.Controllers.api
                     testItems.Add(items.Single(i=>i.Id == iteminvoice.Item.Id));
                 }
 
+                //foreach (var i in testItems)
+                //    profit += i.ActualPrice - i.RetailPrice;
+
                 testInvoice = new Invoice
                 {
                     Id = invoice.Id,
                     InvoiceDateTime = invoice.InvoiceDateTime,
                     TotalPrice = invoice.TotalPrice,
-                    Items = testItems
+                    Items = testItems,
+                    Profit = invoice.Profit
                 };
+
+
                 testInvoices.Add(testInvoice);
 
             }
@@ -70,6 +78,7 @@ namespace GymApplication.Controllers.api
         [HttpPost]
         public IHttpActionResult CreateNewInvoice (InvoiceDto ItemIds)
         {
+            double profit = 0;
             //Load items that match the items sent in the request
             var items = _context.Items.Where(i => ItemIds.ItemIds.Contains(i.Id)).ToList();
 
@@ -79,13 +88,15 @@ namespace GymApplication.Controllers.api
             //    itemList.Add(items.SingleOrDefault(i => i.Id == item));
 
             //}
-
+            foreach (var i in items)
+                profit += i.ActualPrice - i.RetailPrice;
 
             //Make Invoice Available to grab his id
             var invoice = new Invoice()
             {
                 InvoiceDateTime = DateTime.Now,
                 TotalPrice = ItemIds.TotalPrice,
+                Profit = profit
                 //Items = itemList
                 
             };
@@ -116,7 +127,13 @@ namespace GymApplication.Controllers.api
                 //_context.Invoices.Add(invoice);
                 _context.InvoiceItems.Add(invoiceItems); // adding each row to the database
             }
+            Earning earning = new Earning
+            {
+                Name = "Create Invoice# " + invoice.Id.ToString(),
+                Profit = profit
+            };
 
+            _context.Earnings.Add(earning);
             _context.SaveChanges();
 
             return Ok();
@@ -125,10 +142,24 @@ namespace GymApplication.Controllers.api
         [HttpDelete]
         public IHttpActionResult DeletePurchase(int id)
         {
+            var earnings = _context.Earnings.ToList();
             var invoiceInDb = _context.Invoices.SingleOrDefault(c => c.Id == id);
             var itemsInDb = _context.Items.ToList();
-
             var invoiceItemsInDb = _context.InvoiceItems.Where(i => i.Invoice.Id == id);
+
+            //grab the invoice# from the earning name substring 0-15, and number starts at index 16 
+            foreach (var earning in earnings)
+            {
+                if(earning.Name.Substring(0,15) == "Create Invoice#")
+                {
+                    if (earning.Name.Substring(16) == id.ToString())
+                    {
+                        _context.Earnings.Remove(earning);
+                        break; //Once found no need to search for the rest.
+                    }
+
+                }
+            }
 
             if (invoiceInDb == null)
                 return NotFound();

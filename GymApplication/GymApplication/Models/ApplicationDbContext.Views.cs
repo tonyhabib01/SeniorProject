@@ -11,7 +11,7 @@ using System.Data.Entity.Infrastructure.MappingViews;
 
 [assembly: DbMappingViewCacheTypeAttribute(
     typeof(GymApplication.Models.ApplicationDbContext),
-    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsb13769ff6ce0e4d2a7747f23d8b261ff884b99ff02c2260d38e4bb4ce319908b))]
+    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsa5f52600231e22988e1de08ffe9df214d13ee4e27c9cb4e98c932cacc3562e94))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -23,14 +23,14 @@ namespace Edm_EntityMappingGeneratedViews
     /// Implements a mapping view cache.
     /// </summary>
     [GeneratedCode("Entity Framework 6 Power Tools", "0.9.2.0")]
-    internal sealed class ViewsForBaseEntitySetsb13769ff6ce0e4d2a7747f23d8b261ff884b99ff02c2260d38e4bb4ce319908b : DbMappingViewCache
+    internal sealed class ViewsForBaseEntitySetsa5f52600231e22988e1de08ffe9df214d13ee4e27c9cb4e98c932cacc3562e94 : DbMappingViewCache
     {
         /// <summary>
         /// Gets a hash value computed over the mapping closure.
         /// </summary>
         public override string MappingHashValue
         {
-            get { return "b13769ff6ce0e4d2a7747f23d8b261ff884b99ff02c2260d38e4bb4ce319908b"; }
+            get { return "a5f52600231e22988e1de08ffe9df214d13ee4e27c9cb4e98c932cacc3562e94"; }
         }
 
         /// <summary>
@@ -57,134 +57,164 @@ namespace Edm_EntityMappingGeneratedViews
                 return GetView1();
             }
 
-            if (extentName == "CodeFirstDatabase.InvoiceItems")
+            if (extentName == "CodeFirstDatabase.DietPlan")
             {
                 return GetView2();
             }
 
-            if (extentName == "CodeFirstDatabase.Invoice")
+            if (extentName == "CodeFirstDatabase.MembershipType")
             {
                 return GetView3();
             }
 
-            if (extentName == "CodeFirstDatabase.Item")
+            if (extentName == "CodeFirstDatabase.Role")
             {
                 return GetView4();
             }
 
-            if (extentName == "CodeFirstDatabase.ItemInvoice")
+            if (extentName == "CodeFirstDatabase.User")
             {
                 return GetView5();
             }
 
-            if (extentName == "ApplicationDbContext.InvoiceItems")
+            if (extentName == "CodeFirstDatabase.Workout")
             {
                 return GetView6();
             }
 
-            if (extentName == "ApplicationDbContext.InvoiceItems_Invoice")
+            if (extentName == "ApplicationDbContext.DietPlans")
             {
                 return GetView7();
             }
 
-            if (extentName == "ApplicationDbContext.InvoiceItems_Item")
+            if (extentName == "ApplicationDbContext.MembershipTypes")
             {
                 return GetView8();
             }
 
-            if (extentName == "ApplicationDbContext.Invoices")
+            if (extentName == "ApplicationDbContext.Roles")
             {
                 return GetView9();
             }
 
-            if (extentName == "ApplicationDbContext.Items")
+            if (extentName == "ApplicationDbContext.Users")
             {
                 return GetView10();
             }
 
-            if (extentName == "ApplicationDbContext.Item_Invoices")
+            if (extentName == "ApplicationDbContext.User_DietPlan")
             {
                 return GetView11();
             }
 
-            if (extentName == "CodeFirstDatabase.MembershipType")
+            if (extentName == "ApplicationDbContext.User_Workout")
             {
                 return GetView12();
             }
 
-            if (extentName == "CodeFirstDatabase.Role")
+            if (extentName == "ApplicationDbContext.Workouts")
             {
                 return GetView13();
             }
 
-            if (extentName == "CodeFirstDatabase.User")
+            if (extentName == "CodeFirstDatabase.InvoiceItems")
             {
                 return GetView14();
             }
 
-            if (extentName == "ApplicationDbContext.MembershipTypes")
+            if (extentName == "CodeFirstDatabase.Invoice")
             {
                 return GetView15();
             }
 
-            if (extentName == "ApplicationDbContext.Roles")
+            if (extentName == "CodeFirstDatabase.Item")
             {
                 return GetView16();
             }
 
-            if (extentName == "ApplicationDbContext.Users")
+            if (extentName == "CodeFirstDatabase.ItemInvoice")
             {
                 return GetView17();
             }
 
-            if (extentName == "CodeFirstDatabase.IdentityRole")
+            if (extentName == "ApplicationDbContext.InvoiceItems")
             {
                 return GetView18();
             }
 
-            if (extentName == "CodeFirstDatabase.IdentityUserRole")
+            if (extentName == "ApplicationDbContext.InvoiceItems_Invoice")
             {
                 return GetView19();
             }
 
-            if (extentName == "CodeFirstDatabase.ApplicationUser")
+            if (extentName == "ApplicationDbContext.InvoiceItems_Item")
             {
                 return GetView20();
             }
 
-            if (extentName == "CodeFirstDatabase.IdentityUserClaim")
+            if (extentName == "ApplicationDbContext.Invoices")
             {
                 return GetView21();
             }
 
-            if (extentName == "CodeFirstDatabase.IdentityUserLogin")
+            if (extentName == "ApplicationDbContext.Items")
             {
                 return GetView22();
             }
 
-            if (extentName == "ApplicationDbContext.Roles1")
+            if (extentName == "ApplicationDbContext.Item_Invoices")
             {
                 return GetView23();
             }
 
-            if (extentName == "ApplicationDbContext.IdentityUserRoles")
+            if (extentName == "CodeFirstDatabase.IdentityRole")
             {
                 return GetView24();
             }
 
-            if (extentName == "ApplicationDbContext.Users1")
+            if (extentName == "CodeFirstDatabase.IdentityUserRole")
             {
                 return GetView25();
             }
 
-            if (extentName == "ApplicationDbContext.IdentityUserClaims")
+            if (extentName == "CodeFirstDatabase.ApplicationUser")
             {
                 return GetView26();
             }
 
-            if (extentName == "ApplicationDbContext.IdentityUserLogins")
+            if (extentName == "CodeFirstDatabase.IdentityUserClaim")
             {
                 return GetView27();
+            }
+
+            if (extentName == "CodeFirstDatabase.IdentityUserLogin")
+            {
+                return GetView28();
+            }
+
+            if (extentName == "ApplicationDbContext.Roles1")
+            {
+                return GetView29();
+            }
+
+            if (extentName == "ApplicationDbContext.IdentityUserRoles")
+            {
+                return GetView30();
+            }
+
+            if (extentName == "ApplicationDbContext.Users1")
+            {
+                return GetView31();
+            }
+
+            if (extentName == "ApplicationDbContext.IdentityUserClaims")
+            {
+                return GetView32();
+            }
+
+            if (extentName == "ApplicationDbContext.IdentityUserLogins")
+            {
+                return GetView33();
             }
 
             return null;
@@ -233,10 +263,290 @@ namespace Edm_EntityMappingGeneratedViews
         }
 
         /// <summary>
-        /// Gets the view for CodeFirstDatabase.InvoiceItems.
+        /// Gets the view for CodeFirstDatabase.DietPlan.
         /// </summary>
         /// <returns>The mapping view.</returns>
         private static DbMappingView GetView2()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing DietPlan
+        [CodeFirstDatabaseSchema.DietPlan](T1.DietPlan_Id, T1.DietPlan_Body)
+    FROM (
+        SELECT 
+            T.Id AS DietPlan_Id, 
+            T.Body AS DietPlan_Body, 
+            True AS _from0
+        FROM ApplicationDbContext.DietPlans AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.MembershipType.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView3()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing MembershipType
+        [CodeFirstDatabaseSchema.MembershipType](T1.MembershipType_Id, T1.MembershipType_MembershipName, T1.MembershipType_MembershipFees)
+    FROM (
+        SELECT 
+            T.Id AS MembershipType_Id, 
+            T.MembershipName AS MembershipType_MembershipName, 
+            T.MembershipFees AS MembershipType_MembershipFees, 
+            True AS _from0
+        FROM ApplicationDbContext.MembershipTypes AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.Role.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView4()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Role
+        [CodeFirstDatabaseSchema.Role](T1.Role_Id, T1.Role_RoleName)
+    FROM (
+        SELECT 
+            T.Id AS Role_Id, 
+            T.RoleName AS Role_RoleName, 
+            True AS _from0
+        FROM ApplicationDbContext.Roles AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.User.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView5()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing User
+        [CodeFirstDatabaseSchema.User](T4.User_Id, T4.User_ImagePath, T4.User_FirstName, T4.User_LastName, T4.User_EmailAddress, T4.User_Address, T4.User_PhoneNumber, T4.User_EmergencyNumber, T4.User_DateOfBirth, T4.User_RoleId, T4.User_MembershipTypeId, T4.User_RegistrationDate, T4.[User.DietPlan_Id], T4.[User.Workout_Id])
+    FROM (
+        SELECT T1.User_Id, T1.User_ImagePath, T1.User_FirstName, T1.User_LastName, T1.User_EmailAddress, T1.User_Address, T1.User_PhoneNumber, T1.User_EmergencyNumber, T1.User_DateOfBirth, T1.User_RoleId, T1.User_MembershipTypeId, T1.User_RegistrationDate, T2.[User.DietPlan_Id], T3.[User.Workout_Id], T1._from0, (T2._from1 AND T2._from1 IS NOT NULL) AS _from1, (T3._from2 AND T3._from2 IS NOT NULL) AS _from2
+        FROM  (
+            SELECT 
+                T.Id AS User_Id, 
+                T.ImagePath AS User_ImagePath, 
+                T.FirstName AS User_FirstName, 
+                T.LastName AS User_LastName, 
+                T.EmailAddress AS User_EmailAddress, 
+                T.Address AS User_Address, 
+                T.PhoneNumber AS User_PhoneNumber, 
+                T.EmergencyNumber AS User_EmergencyNumber, 
+                T.DateOfBirth AS User_DateOfBirth, 
+                T.RoleId AS User_RoleId, 
+                T.MembershipTypeId AS User_MembershipTypeId, 
+                T.RegistrationDate AS User_RegistrationDate, 
+                True AS _from0
+            FROM ApplicationDbContext.Users AS T) AS T1
+            LEFT OUTER JOIN (
+            SELECT 
+                Key(T.User_DietPlan_Source).Id AS User_Id, 
+                Key(T.User_DietPlan_Target).Id AS [User.DietPlan_Id], 
+                True AS _from1
+            FROM ApplicationDbContext.User_DietPlan AS T) AS T2
+            ON T1.User_Id = T2.User_Id
+            LEFT OUTER JOIN (
+            SELECT 
+                Key(T.User_Workout_Source).Id AS User_Id, 
+                Key(T.User_Workout_Target).Id AS [User.Workout_Id], 
+                True AS _from2
+            FROM ApplicationDbContext.User_Workout AS T) AS T3
+            ON T1.User_Id = T3.User_Id
+    ) AS T4");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.Workout.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView6()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Workout
+        [CodeFirstDatabaseSchema.Workout](T1.Workout_Id, T1.Workout_Body)
+    FROM (
+        SELECT 
+            T.Id AS Workout_Id, 
+            T.Body AS Workout_Body, 
+            True AS _from0
+        FROM ApplicationDbContext.Workouts AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for ApplicationDbContext.DietPlans.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView7()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing DietPlans
+        [GymApplication.Models.DietPlan](T1.DietPlan_Id, T1.DietPlan_Body)
+    FROM (
+        SELECT 
+            T.Id AS DietPlan_Id, 
+            T.Body AS DietPlan_Body, 
+            True AS _from0
+        FROM CodeFirstDatabase.DietPlan AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for ApplicationDbContext.MembershipTypes.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView8()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing MembershipTypes
+        [GymApplication.Models.MembershipType](T1.MembershipType_Id, T1.MembershipType_MembershipName, T1.MembershipType_MembershipFees)
+    FROM (
+        SELECT 
+            T.Id AS MembershipType_Id, 
+            T.MembershipName AS MembershipType_MembershipName, 
+            T.MembershipFees AS MembershipType_MembershipFees, 
+            True AS _from0
+        FROM CodeFirstDatabase.MembershipType AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for ApplicationDbContext.Roles.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView9()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Roles
+        [GymApplication.Models.Role](T1.Role_Id, T1.Role_RoleName)
+    FROM (
+        SELECT 
+            T.Id AS Role_Id, 
+            T.RoleName AS Role_RoleName, 
+            True AS _from0
+        FROM CodeFirstDatabase.Role AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for ApplicationDbContext.Users.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView10()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Users
+        [GymApplication.Models.User](T1.User_Id, T1.User_ImagePath, T1.User_FirstName, T1.User_LastName, T1.User_EmailAddress, T1.User_Address, T1.User_PhoneNumber, T1.User_EmergencyNumber, T1.User_DateOfBirth, T1.User_RoleId, T1.User_MembershipTypeId, T1.User_RegistrationDate) WITH 
+        RELATIONSHIP(CREATEREF(ApplicationDbContext.DietPlans, ROW(T1.[User_DietPlan.User_DietPlan_Target.Id]),[GymApplication.Models.DietPlan]),[GymApplication.Models.User_DietPlan],User_DietPlan_Source,User_DietPlan_Target) 
+        RELATIONSHIP(CREATEREF(ApplicationDbContext.Workouts, ROW(T1.[User_Workout.User_Workout_Target.Id]),[GymApplication.Models.Workout]),[GymApplication.Models.User_Workout],User_Workout_Source,User_Workout_Target) 
+    FROM (
+        SELECT 
+            T.Id AS User_Id, 
+            T.ImagePath AS User_ImagePath, 
+            T.FirstName AS User_FirstName, 
+            T.LastName AS User_LastName, 
+            T.EmailAddress AS User_EmailAddress, 
+            T.Address AS User_Address, 
+            T.PhoneNumber AS User_PhoneNumber, 
+            T.EmergencyNumber AS User_EmergencyNumber, 
+            T.DateOfBirth AS User_DateOfBirth, 
+            T.RoleId AS User_RoleId, 
+            T.MembershipTypeId AS User_MembershipTypeId, 
+            T.RegistrationDate AS User_RegistrationDate, 
+            True AS _from0, 
+            T.DietPlan_Id AS [User_DietPlan.User_DietPlan_Target.Id], 
+            T.Workout_Id AS [User_Workout.User_Workout_Target.Id]
+        FROM CodeFirstDatabase.User AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for ApplicationDbContext.User_DietPlan.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView11()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing User_DietPlan
+        [GymApplication.Models.User_DietPlan](T3.[User_DietPlan.User_DietPlan_Source], T3.[User_DietPlan.User_DietPlan_Target])
+    FROM (
+        SELECT -- Constructing User_DietPlan_Source
+            CreateRef(ApplicationDbContext.Users, row(T2.[User_DietPlan.User_DietPlan_Source.Id]), [GymApplication.Models.User]) AS [User_DietPlan.User_DietPlan_Source], 
+            T2.[User_DietPlan.User_DietPlan_Target]
+        FROM (
+            SELECT -- Constructing User_DietPlan_Target
+                T1.[User_DietPlan.User_DietPlan_Source.Id], 
+                CreateRef(ApplicationDbContext.DietPlans, row(T1.[User_DietPlan.User_DietPlan_Target.Id]), [GymApplication.Models.DietPlan]) AS [User_DietPlan.User_DietPlan_Target]
+            FROM (
+                SELECT 
+                    T.Id AS [User_DietPlan.User_DietPlan_Source.Id], 
+                    T.DietPlan_Id AS [User_DietPlan.User_DietPlan_Target.Id], 
+                    True AS _from0
+                FROM CodeFirstDatabase.User AS T
+                WHERE T.DietPlan_Id IS NOT NULL
+            ) AS T1
+        ) AS T2
+    ) AS T3");
+        }
+
+        /// <summary>
+        /// Gets the view for ApplicationDbContext.User_Workout.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView12()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing User_Workout
+        [GymApplication.Models.User_Workout](T3.[User_Workout.User_Workout_Source], T3.[User_Workout.User_Workout_Target])
+    FROM (
+        SELECT -- Constructing User_Workout_Source
+            CreateRef(ApplicationDbContext.Users, row(T2.[User_Workout.User_Workout_Source.Id]), [GymApplication.Models.User]) AS [User_Workout.User_Workout_Source], 
+            T2.[User_Workout.User_Workout_Target]
+        FROM (
+            SELECT -- Constructing User_Workout_Target
+                T1.[User_Workout.User_Workout_Source.Id], 
+                CreateRef(ApplicationDbContext.Workouts, row(T1.[User_Workout.User_Workout_Target.Id]), [GymApplication.Models.Workout]) AS [User_Workout.User_Workout_Target]
+            FROM (
+                SELECT 
+                    T.Id AS [User_Workout.User_Workout_Source.Id], 
+                    T.Workout_Id AS [User_Workout.User_Workout_Target.Id], 
+                    True AS _from0
+                FROM CodeFirstDatabase.User AS T
+                WHERE T.Workout_Id IS NOT NULL
+            ) AS T1
+        ) AS T2
+    ) AS T3");
+        }
+
+        /// <summary>
+        /// Gets the view for ApplicationDbContext.Workouts.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView13()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Workouts
+        [GymApplication.Models.Workout](T1.Workout_Id, T1.Workout_Body)
+    FROM (
+        SELECT 
+            T.Id AS Workout_Id, 
+            T.Body AS Workout_Body, 
+            True AS _from0
+        FROM CodeFirstDatabase.Workout AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.InvoiceItems.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView14()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing InvoiceItems
@@ -269,16 +579,17 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.Invoice.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView3()
+        private static DbMappingView GetView15()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Invoice
-        [CodeFirstDatabaseSchema.Invoice](T1.Invoice_Id, T1.Invoice_InvoiceDateTime, T1.Invoice_TotalPrice)
+        [CodeFirstDatabaseSchema.Invoice](T1.Invoice_Id, T1.Invoice_InvoiceDateTime, T1.Invoice_TotalPrice, T1.Invoice_Profit)
     FROM (
         SELECT 
             T.Id AS Invoice_Id, 
             T.InvoiceDateTime AS Invoice_InvoiceDateTime, 
             T.TotalPrice AS Invoice_TotalPrice, 
+            T.Profit AS Invoice_Profit, 
             True AS _from0
         FROM ApplicationDbContext.Invoices AS T
     ) AS T1");
@@ -288,7 +599,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.Item.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView4()
+        private static DbMappingView GetView16()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Item
@@ -310,7 +621,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.ItemInvoice.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView5()
+        private static DbMappingView GetView17()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing ItemInvoice
@@ -328,7 +639,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for ApplicationDbContext.InvoiceItems.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView6()
+        private static DbMappingView GetView18()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing InvoiceItems
@@ -349,7 +660,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for ApplicationDbContext.InvoiceItems_Invoice.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView7()
+        private static DbMappingView GetView19()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing InvoiceItems_Invoice
@@ -378,7 +689,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for ApplicationDbContext.InvoiceItems_Item.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView8()
+        private static DbMappingView GetView20()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing InvoiceItems_Item
@@ -407,16 +718,17 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for ApplicationDbContext.Invoices.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView9()
+        private static DbMappingView GetView21()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Invoices
-        [GymApplication.Models.Invoice](T1.Invoice_Id, T1.Invoice_InvoiceDateTime, T1.Invoice_TotalPrice)
+        [GymApplication.Models.Invoice](T1.Invoice_Id, T1.Invoice_InvoiceDateTime, T1.Invoice_TotalPrice, T1.Invoice_Profit)
     FROM (
         SELECT 
             T.Id AS Invoice_Id, 
             T.InvoiceDateTime AS Invoice_InvoiceDateTime, 
             T.TotalPrice AS Invoice_TotalPrice, 
+            T.Profit AS Invoice_Profit, 
             True AS _from0
         FROM CodeFirstDatabase.Invoice AS T
     ) AS T1");
@@ -426,7 +738,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for ApplicationDbContext.Items.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView10()
+        private static DbMappingView GetView22()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Items
@@ -448,7 +760,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for ApplicationDbContext.Item_Invoices.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView11()
+        private static DbMappingView GetView23()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Item_Invoices
@@ -473,140 +785,10 @@ namespace Edm_EntityMappingGeneratedViews
         }
 
         /// <summary>
-        /// Gets the view for CodeFirstDatabase.MembershipType.
-        /// </summary>
-        /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView12()
-        {
-            return new DbMappingView(@"
-    SELECT VALUE -- Constructing MembershipType
-        [CodeFirstDatabaseSchema.MembershipType](T1.MembershipType_Id, T1.MembershipType_MembershipName, T1.MembershipType_MembershipFees)
-    FROM (
-        SELECT 
-            T.Id AS MembershipType_Id, 
-            T.MembershipName AS MembershipType_MembershipName, 
-            T.MembershipFees AS MembershipType_MembershipFees, 
-            True AS _from0
-        FROM ApplicationDbContext.MembershipTypes AS T
-    ) AS T1");
-        }
-
-        /// <summary>
-        /// Gets the view for CodeFirstDatabase.Role.
-        /// </summary>
-        /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView13()
-        {
-            return new DbMappingView(@"
-    SELECT VALUE -- Constructing Role
-        [CodeFirstDatabaseSchema.Role](T1.Role_Id, T1.Role_RoleName)
-    FROM (
-        SELECT 
-            T.Id AS Role_Id, 
-            T.RoleName AS Role_RoleName, 
-            True AS _from0
-        FROM ApplicationDbContext.Roles AS T
-    ) AS T1");
-        }
-
-        /// <summary>
-        /// Gets the view for CodeFirstDatabase.User.
-        /// </summary>
-        /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView14()
-        {
-            return new DbMappingView(@"
-    SELECT VALUE -- Constructing User
-        [CodeFirstDatabaseSchema.User](T1.User_Id, T1.User_ImagePath, T1.User_FirstName, T1.User_LastName, T1.User_EmailAddress, T1.User_Address, T1.User_PhoneNumber, T1.User_EmergencyNumber, T1.User_DateOfBirth, T1.User_RoleId, T1.User_MembershipTypeId, T1.User_RegistrationDate)
-    FROM (
-        SELECT 
-            T.Id AS User_Id, 
-            T.ImagePath AS User_ImagePath, 
-            T.FirstName AS User_FirstName, 
-            T.LastName AS User_LastName, 
-            T.EmailAddress AS User_EmailAddress, 
-            T.Address AS User_Address, 
-            T.PhoneNumber AS User_PhoneNumber, 
-            T.EmergencyNumber AS User_EmergencyNumber, 
-            T.DateOfBirth AS User_DateOfBirth, 
-            T.RoleId AS User_RoleId, 
-            T.MembershipTypeId AS User_MembershipTypeId, 
-            T.RegistrationDate AS User_RegistrationDate, 
-            True AS _from0
-        FROM ApplicationDbContext.Users AS T
-    ) AS T1");
-        }
-
-        /// <summary>
-        /// Gets the view for ApplicationDbContext.MembershipTypes.
-        /// </summary>
-        /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView15()
-        {
-            return new DbMappingView(@"
-    SELECT VALUE -- Constructing MembershipTypes
-        [GymApplication.Models.MembershipType](T1.MembershipType_Id, T1.MembershipType_MembershipName, T1.MembershipType_MembershipFees)
-    FROM (
-        SELECT 
-            T.Id AS MembershipType_Id, 
-            T.MembershipName AS MembershipType_MembershipName, 
-            T.MembershipFees AS MembershipType_MembershipFees, 
-            True AS _from0
-        FROM CodeFirstDatabase.MembershipType AS T
-    ) AS T1");
-        }
-
-        /// <summary>
-        /// Gets the view for ApplicationDbContext.Roles.
-        /// </summary>
-        /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView16()
-        {
-            return new DbMappingView(@"
-    SELECT VALUE -- Constructing Roles
-        [GymApplication.Models.Role](T1.Role_Id, T1.Role_RoleName)
-    FROM (
-        SELECT 
-            T.Id AS Role_Id, 
-            T.RoleName AS Role_RoleName, 
-            True AS _from0
-        FROM CodeFirstDatabase.Role AS T
-    ) AS T1");
-        }
-
-        /// <summary>
-        /// Gets the view for ApplicationDbContext.Users.
-        /// </summary>
-        /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView17()
-        {
-            return new DbMappingView(@"
-    SELECT VALUE -- Constructing Users
-        [GymApplication.Models.User](T1.User_Id, T1.User_ImagePath, T1.User_FirstName, T1.User_LastName, T1.User_EmailAddress, T1.User_Address, T1.User_PhoneNumber, T1.User_EmergencyNumber, T1.User_DateOfBirth, T1.User_RoleId, T1.User_MembershipTypeId, T1.User_RegistrationDate)
-    FROM (
-        SELECT 
-            T.Id AS User_Id, 
-            T.ImagePath AS User_ImagePath, 
-            T.FirstName AS User_FirstName, 
-            T.LastName AS User_LastName, 
-            T.EmailAddress AS User_EmailAddress, 
-            T.Address AS User_Address, 
-            T.PhoneNumber AS User_PhoneNumber, 
-            T.EmergencyNumber AS User_EmergencyNumber, 
-            T.DateOfBirth AS User_DateOfBirth, 
-            T.RoleId AS User_RoleId, 
-            T.MembershipTypeId AS User_MembershipTypeId, 
-            T.RegistrationDate AS User_RegistrationDate, 
-            True AS _from0
-        FROM CodeFirstDatabase.User AS T
-    ) AS T1");
-        }
-
-        /// <summary>
         /// Gets the view for CodeFirstDatabase.IdentityRole.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView18()
+        private static DbMappingView GetView24()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing IdentityRole
@@ -624,7 +806,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.IdentityUserRole.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView19()
+        private static DbMappingView GetView25()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing IdentityUserRole
@@ -642,7 +824,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.ApplicationUser.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView20()
+        private static DbMappingView GetView26()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing ApplicationUser
@@ -670,7 +852,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.IdentityUserClaim.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView21()
+        private static DbMappingView GetView27()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing IdentityUserClaim
@@ -690,7 +872,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.IdentityUserLogin.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView22()
+        private static DbMappingView GetView28()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing IdentityUserLogin
@@ -709,7 +891,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for ApplicationDbContext.Roles1.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView23()
+        private static DbMappingView GetView29()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Roles1
@@ -727,7 +909,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for ApplicationDbContext.IdentityUserRoles.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView24()
+        private static DbMappingView GetView30()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing IdentityUserRoles
@@ -745,7 +927,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for ApplicationDbContext.Users1.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView25()
+        private static DbMappingView GetView31()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Users1
@@ -773,7 +955,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for ApplicationDbContext.IdentityUserClaims.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView26()
+        private static DbMappingView GetView32()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing IdentityUserClaims
@@ -793,7 +975,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for ApplicationDbContext.IdentityUserLogins.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView27()
+        private static DbMappingView GetView33()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing IdentityUserLogins

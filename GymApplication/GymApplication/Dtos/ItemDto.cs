@@ -17,5 +17,6 @@ namespace GymApplication.Dtos
         public double ActualPrice { get; set; }
 
         public int StockNumber { get; set; }
+
     }
 }

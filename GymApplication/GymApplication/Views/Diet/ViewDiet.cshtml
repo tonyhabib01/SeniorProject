@@ -1,0 +1,26 @@
+﻿@model GymApplication.Models.User
+@{
+    ViewBag.Title = "View Diet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h3 class="text-dark mb-1">Diet</h3>
+    <div class="card shadow mb-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    @if (Model.DietPlan == null)
+                    {
+                        <p>You don't have any Diet Plan</p>
+                    }
+                    else
+                    {
+                        <span style="white-space : pre-line">@Html.DisplayFor(u => u.DietPlan.Body)</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

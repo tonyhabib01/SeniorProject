@@ -192,11 +192,14 @@
     <Compile Include="Controllers\api\PurchasesController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\COVID19Controller.cs" />
+    <Compile Include="Controllers\DietController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MembershipPlansController.cs" />
     <Compile Include="Controllers\PurchasesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\WorkoutController.cs" />
     <Compile Include="Dtos\InvoiceDto.cs" />
     <Compile Include="Dtos\ItemDto.cs" />
     <Compile Include="Global.asax.cs">
@@ -218,10 +221,49 @@
     <Compile Include="Migrations\202004111555237_AddTotalPriceToInvoice.designer.cs">
       <DependentUpon>202004111555237_AddTotalPriceToInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005300957138_AddDietPlanToUser.cs" />
+    <Compile Include="Migrations\202005300957138_AddDietPlanToUser.designer.cs">
+      <DependentUpon>202005300957138_AddDietPlanToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005301030234_AddDietPlanTable.cs" />
+    <Compile Include="Migrations\202005301030234_AddDietPlanTable.designer.cs">
+      <DependentUpon>202005301030234_AddDietPlanTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005301127189_AddWorkout.cs" />
+    <Compile Include="Migrations\202005301127189_AddWorkout.designer.cs">
+      <DependentUpon>202005301127189_AddWorkout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006011211425_AddProfitToInvoiceAndItem.cs" />
+    <Compile Include="Migrations\202006011211425_AddProfitToInvoiceAndItem.designer.cs">
+      <DependentUpon>202006011211425_AddProfitToInvoiceAndItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006011215543_UpdateItemProfit.cs" />
+    <Compile Include="Migrations\202006011215543_UpdateItemProfit.designer.cs">
+      <DependentUpon>202006011215543_UpdateItemProfit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006011223258_UpdateProfitInvoice.cs" />
+    <Compile Include="Migrations\202006011223258_UpdateProfitInvoice.designer.cs">
+      <DependentUpon>202006011223258_UpdateProfitInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006011301575_FixInvoiceProfit.cs" />
+    <Compile Include="Migrations\202006011301575_FixInvoiceProfit.designer.cs">
+      <DependentUpon>202006011301575_FixInvoiceProfit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006011328045_RemoveItemProfit.cs" />
+    <Compile Include="Migrations\202006011328045_RemoveItemProfit.designer.cs">
+      <DependentUpon>202006011328045_RemoveItemProfit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006011524276_AddEarningsAndBillsModel.cs" />
+    <Compile Include="Migrations\202006011524276_AddEarningsAndBillsModel.designer.cs">
+      <DependentUpon>202006011524276_AddEarningsAndBillsModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.Views.cs" />
+    <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Class.cs" />
+    <Compile Include="Models\DietPlan.cs" />
+    <Compile Include="Models\Earning.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\InvoiceItems.cs" />
@@ -230,6 +272,7 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Workout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AddUserForm.cs" />
@@ -721,6 +764,16 @@
     <Content Include="Views\Purchases\Index.cshtml" />
     <Content Include="Views\COVID19\Index.cshtml" />
     <Content Include="Views\Purchases\InvoiceSearch.cshtml" />
+    <Content Include="Views\Diet\Index.cshtml" />
+    <Content Include="Views\Diet\Diets.cshtml" />
+    <Content Include="Views\Diet\AddDiet.cshtml" />
+    <Content Include="Views\Diet\ViewDiet.cshtml" />
+    <Content Include="Views\Workout\Workouts.cshtml" />
+    <Content Include="Views\Workout\AddWorkout.cshtml" />
+    <Content Include="Views\Workout\ViewWorkout.cshtml" />
+    <Content Include="Views\MembershipPlans\Index.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -748,6 +801,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004111555237_AddTotalPriceToInvoice.resx">
       <DependentUpon>202004111555237_AddTotalPriceToInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005300957138_AddDietPlanToUser.resx">
+      <DependentUpon>202005300957138_AddDietPlanToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301030234_AddDietPlanTable.resx">
+      <DependentUpon>202005301030234_AddDietPlanTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301127189_AddWorkout.resx">
+      <DependentUpon>202005301127189_AddWorkout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006011211425_AddProfitToInvoiceAndItem.resx">
+      <DependentUpon>202006011211425_AddProfitToInvoiceAndItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006011215543_UpdateItemProfit.resx">
+      <DependentUpon>202006011215543_UpdateItemProfit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006011223258_UpdateProfitInvoice.resx">
+      <DependentUpon>202006011223258_UpdateProfitInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006011301575_FixInvoiceProfit.resx">
+      <DependentUpon>202006011301575_FixInvoiceProfit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006011328045_RemoveItemProfit.resx">
+      <DependentUpon>202006011328045_RemoveItemProfit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006011524276_AddEarningsAndBillsModel.resx">
+      <DependentUpon>202006011524276_AddEarningsAndBillsModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

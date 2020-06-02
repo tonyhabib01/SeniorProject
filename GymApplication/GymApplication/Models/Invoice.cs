@@ -11,6 +11,7 @@ namespace GymApplication.Models
         public List<Item> Items { get; set; }
         public DateTime? InvoiceDateTime { get; set; }
         public double TotalPrice { get; set; }
+        public double Profit { get; set; }
 
 
     }

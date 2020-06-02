@@ -100,6 +100,18 @@ namespace GymApplication.Controllers
         {
             if(user.Id == 0)
             {
+                if(user.Role.RoleName == "Member")
+                {
+                    Earning earning = new Earning
+                    {
+                        Name = "User Registration",
+                        Profit = user.MembershipType.MembershipFees,
+                        Datetime = DateTime.Now
+                    };
+
+                    _context.Earnings.Add(earning);
+                }
+                    
                 _context.Users.Add(user);
 
             }

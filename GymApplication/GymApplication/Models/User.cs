@@ -42,7 +42,8 @@ namespace GymApplication.Models
 
         [Display (Name = "Registration Date")]
         public DateTime RegistrationDate { get; set; }
-
+        public DietPlan DietPlan { get; set; }
+        public Workout Workout { get; set; }
         public string Age
         {
             get
