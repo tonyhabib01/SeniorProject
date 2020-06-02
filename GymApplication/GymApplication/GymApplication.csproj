@@ -190,6 +190,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\ItemsController.cs" />
     <Compile Include="Controllers\api\PurchasesController.cs" />
+    <Compile Include="Controllers\BillsController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\COVID19Controller.cs" />
     <Compile Include="Controllers\DietController.cs" />
@@ -705,6 +706,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -774,6 +776,9 @@
     <Content Include="Views\MembershipPlans\Index.cshtml" />
     <Content Include="Views\Home\ContactUs.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Bills\Index.cshtml" />
+    <Content Include="Views\Bills\AddBill.cshtml" />
+    <Content Include="Views\Bills\DeleteBill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

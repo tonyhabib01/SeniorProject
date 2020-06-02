@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using GymApplication.Models;
+using GymApplication.ViewModels;
 
 namespace GymApplication.Controllers
 {
@@ -37,47 +38,10 @@ namespace GymApplication.Controllers
         }
 
         public ActionResult Dashboard()
-        {
-            //double userProfit = 0;
-            //var invoices = _context.Invoices.ToList();
-            //var users = _context.Users.Include(u=>u.MembershipType).ToList();
-
-            //foreach (var user in users)
-            //{
-            //    userProfit += user.MembershipType.MembershipFees;
-            //}
-            return View();
+        {   
+            var earnings = _context.Earnings.ToList();
+            var viewModel = new DashboardViewModel(earnings);
+            return View(viewModel);
         }
-
-        //public double MonthlyEarning()
-        //{
-        //    double earnings = 0;
-        //    var users = _context.Users.Include(u => u.MembershipType).Where(u => u.RegistrationDate.Month == DateTime.Now.Month);
-        //    var invoices = _context.Invoices.Where(u => u.InvoiceDateTime.Value.Month == DateTime.Now.Month);
-        //    //add bills
-        //    foreach (var user in users)
-        //        earnings += user.MembershipType.MembershipFees;
-
-        //    foreach (var invoice in invoices)
-        //        earnings += invoice.Profit;
-
-        //    return earnings;
-            
-        //}
-
-        //public double YearlyEarning()
-        //{
-        //    double earnings = 0;
-        //    var users = _context.Users.Include(u => u.MembershipType).Where(u => u.RegistrationDate.Year == DateTime.Now.Year);
-        //    var invoices = _context.Invoices.Where(u => u.InvoiceDateTime.Value.Year == DateTime.Now.Month);
-        //    //add bills
-        //    foreach (var user in users)
-        //        earnings += user.MembershipType.MembershipFees;
-
-        //    foreach (var invoice in invoices)
-        //        earnings += invoice.Profit;
-
-        //    return earnings;
-        //}
     }
 }

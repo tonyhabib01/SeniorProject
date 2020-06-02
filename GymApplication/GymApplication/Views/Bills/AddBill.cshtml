@@ -1,0 +1,45 @@
+﻿@model GymApplication.Models.Bill
+@{
+    ViewBag.Title = "Add Bill";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h3 class="text-dark mb-1">@ViewBag.TitleName</h3>
+    <div class="col" style="padding: 15px;">
+        <div class="card shadow mb-3">
+            <div class="card-header py-3">
+                <p class="text-primary m-0 font-weight-bold">@ViewBag.TitleName</p>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Save", "Bills"))
+                {@*Begin Form*@
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(c => c.Name, new { style = "width: 90.7875px;height: 24px;margin: 0px 0px 8px;padding: 0px;" })</strong>
+                            @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(c => c.Price)</strong>
+                            @Html.TextBoxFor(c => c.Price, new { @class = "form-control", type = "number" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-sm" type="submit">@ViewBag.TitleName</button>
+                        </div>
+                    </div>
+                </div>
+                @Html.HiddenFor(c => c.Id)
+            }@*End Form*@
+        </div>
+    </div>
+
+</div>
+</div>
+

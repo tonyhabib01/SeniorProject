@@ -1,4 +1,4 @@
-﻿
+﻿@model GymApplication.ViewModels.DashboardViewModel
 @{
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,7 +15,7 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col mr-2">
                             <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Earnings (monthly)</span></div>
-                            <div class="text-dark font-weight-bold h5 mb-0"><span>$10,000</span></div>
+                            <div class="text-dark font-weight-bold h5 mb-0"><span>$@Model.GetMonthlyProfit()</span></div>
                         </div>
                         <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
                     </div>
@@ -28,7 +28,7 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col mr-2">
                             <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Earnings (annual)</span></div>
-                            <div class="text-dark font-weight-bold h5 mb-0"><span>$80,000</span></div>
+                            <div class="text-dark font-weight-bold h5 mb-0"><span>$@Model.GetYearlyProfit()</span></div>
                         </div>
                         <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i></div>
                     </div>

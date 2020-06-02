@@ -1,0 +1,105 @@
+﻿@model IEnumerable<GymApplication.Models.Bill>
+@{
+    ViewBag.Title = "Bills";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+<link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+<link rel="stylesheet" href="~/assets/fonts/simple-line-icons.min.css">
+<link rel="stylesheet" href="~/assets/css/Bootstrap-4---Table-Fixed-Header.css">
+<link rel="stylesheet" href="~/assets/css/Footer-Dark.css">
+<link rel="stylesheet" href="~/assets/css/Pricing-Grid.css">
+
+<style>
+
+    tr:hover {
+        background-color: aliceblue;
+        cursor: pointer
+    }
+</style>
+<div class="container-fluid">
+    <h3 class="text-dark mb-4">Bills</h3>
+    <div class="card shadow">
+        <div class="card-header py-3">
+            <p class="text-primary m-0 font-weight-bold">Bills</p>
+        </div>
+        <div class="card-body">
+            <a href="@Url.Action("AddBill", "Bills")" class="btn btn-primary btn-group-sm" style="margin-bottom: 15px;">Add Bill</a>
+
+            @if (!Model.Any())
+            {
+                <p>You don't have any Bill.</p>
+            }
+            else
+            {
+
+                <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                    <table class="table dataTable my-0 mydatatable" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Bill</th>
+                                <th>Price</th>
+                                <th>Date/Time</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var bill in Model)
+                            {
+                                <tr onclick="location.href = '@Url.Action("EditBill","Bills", new {id = bill.Id })'">
+                                    <td>@bill.Id</td>
+                                    <td>@bill.Name</td>
+                                    <td>@bill.Price $</td>
+                                    <td>@bill.Datetime $</td>
+                                    <td>
+                                        @Html.ActionLink("Delete", "DeleteBill", "Bills", new { id = bill.Id }, new { @class = "btn btn-danger" })
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td><strong>Id</strong></td>
+                                <td><strong>Bill</strong></td>
+                                <td><strong>Price</strong></td>
+                                <td><strong>Date/Time</strong></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+
+            }
+
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+<link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+<link rel="stylesheet" href="~/assets/fonts/simple-line-icons.min.css">
+<link rel="stylesheet" href="~/assets/css/Bootstrap-4---Table-Fixed-Header.css">
+<link rel="stylesheet" href="~/assets/css/Footer-Dark.css">
+<link rel="stylesheet" href="~/assets/css/Pricing-Grid.css">
+
+@section scripts{
+    <script>
+        $('.mydatatable').DataTable();
+
+        $("input.form-control.form-control-sm").attr("Placeholder", "Search...");
+
+    </script>
+
+
+}
