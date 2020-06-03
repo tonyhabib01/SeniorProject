@@ -5,3 +5,57 @@
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+
+@*
+    
+    type: 'line',
+    data: {
+        labels: [Jan,Feb, ...],
+        datasets: [
+                {
+                    label: Earnings
+                    fill:true
+                    data: [1000,2000,3000...]
+                    backgroundColor: rgba(78,115,223,0.05)
+                    borderColor: rgba (78,115,223,1)
+               }
+                 ]
+        }
+        option: {
+                    maintainAspectRatio: false,
+                    legend:{display:false},
+                    title: {},
+                    scales: {
+                                xAxes: [
+                                            gridLines: {
+                                                            color: rgb(234,236,224),
+                                                            zeroLineColor: rgb(234,236,244),
+                                                            drawBorder: false,
+                                                            drawTicks: false,
+                                                            borderDash: [2],
+                                                            zeroLineBorderDash:[2],
+                                                            drawOnChartArea: false,
+                                                            ticks: {fontColor: #858796,
+                                                            padding: 20
+                                                                   }
+                                                       }
+                                       ]
+                            yAxes: [
+                                        gridLines: {
+                                                        color: rgb(234, 236, 244),
+                                                        zeroLineColor: rgb(234, 236, 244),
+                                                        drawBorder: false,
+                                                        drawTicks: false,
+                                                        borderDash: [2],
+                                                        zeroLineBorderDash:[2],
+                                                        drawOnChartArea: false,
+                                                        ticks: {fontColor: #858796,
+                                                        padding: 20
+                                                               }
+                                                   }
+                                   ]
+                            }
+                }
+
+    }
+*@
